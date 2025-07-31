@@ -1,16 +1,16 @@
 {
   "name": "product-checker",
   "version": "1.0.0",
-  "main": "server.js",
   "description": "",
+  "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "build": "npx puppeteer browsers install chrome"
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2",
-    "puppeteer": "^21.3.8"
+    "axios": "^1.6.8",
+    "cheerio": "^1.0.0-rc.12",
+    "express": "^4.18.2"
   }
 }
