@@ -1,18 +1,14 @@
 {
   "name": "product-checker",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
+  "description": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "build": "npx puppeteer browsers install chrome"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "express": "^5.1.0",
-    "puppeteer": "^24.15.0"
-   },
   "dependencies": {
     "express": "^4.18.2",
     "puppeteer": "^21.3.8"
