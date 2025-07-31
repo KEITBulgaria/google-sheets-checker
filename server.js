@@ -12,19 +12,19 @@ app.get('/scrape', async (req, res) => {
   }
 
   try {
-    const { data } = await axios.get(url, {
+    const response = await axios.get(url, {
       headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)',
-      },
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
+      }
     });
 
-    const $ = cheerio.load(data);
-    const text = $('body').text().toLowerCase();
+    const $ = cheerio.load(response.data);
+    const bodyText = $('body').text().toLowerCase();
 
     let status = 'ЗА ПРОВЕРКА';
-    if (text.includes('на склад') || text.includes('в наличност')) {
+    if (bodyText.includes('на склад') || bodyText.includes('наличен') || bodyText.includes('в наличност')) {
       status = 'НАЛИЧЕН';
-    } else if (text.includes('изчерпан') || text.includes('няма наличност')) {
+    } else if (bodyText.includes('изчерпан') || bodyText.includes('няма наличност') || bodyText.includes('продуктът не е в наличност')) {
       status = 'ИЗЧЕРПАН';
     }
 
